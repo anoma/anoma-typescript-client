@@ -1,0 +1,26 @@
+/node_modules/
+
+# PLTs go here for CI cache purposes
+/plts/
+
+# Ignore .fetch files in case you like to edit your project deps locally.
+/.fetch
+
+# Ignore package tarball (built via "mix hex.build").
+anoma-*.tar
+
+# Temporary files, for example, from tests.
+/tmp/
+
+# Emacs git ignore
+*.*~
+\#*\#
+
+# VSCode git ignore
+.vscode/
+
+# Docs versioning
+.doc-versions.js
+
+# Certificate files
+*.pem
