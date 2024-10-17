@@ -1,0 +1,14 @@
+{
+    "name": "anoma-client",
+    "version": "0.0.0",
+    "dependencies": {
+        "@grpc/grpc-js": "^1.12.0",
+        "google-protobuf": "^3.21.4",
+        "grpc-web": "^1.5.0",
+        "protoc-gen-grpc": "^2.0.4",
+        "protoc-gen-grpc-ts": "^1.0.1"
+    },
+    "devDependencies": {
+        "grpc_tools_node_protoc_ts": "^5.3.3"
+    }
+}
