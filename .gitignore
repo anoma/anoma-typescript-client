@@ -24,3 +24,4 @@ anoma-*.tar
 
 # Certificate files
 *.pem
+dist
