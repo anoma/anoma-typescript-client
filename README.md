@@ -16,3 +16,9 @@ store them in `protobuf/`. Generate the typescript files with `./scripts/generat
 ## Example
 
 There is an example program in `src/example.ts` that uses the client and calls all of its endpoints.
+
+To run the example use [`npx`](https://docs.npmjs.com/cli/v8/commands/npx):
+
+```sh
+$ npx ts-node src/example.ts
+```
