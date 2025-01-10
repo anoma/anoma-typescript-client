@@ -1,6 +1,9 @@
 // package: Anoma.Protobuf
 // file: anoma.proto
 
+/* tslint:disable */
+/* eslint-disable */
+
 import * as jspb from "google-protobuf";
 import * as nock_prove_pb from "./nock/prove_pb";
 import * as nock_run_pb from "./nock/run_pb";
@@ -17,4 +20,3 @@ import * as indexer_blocks_get_pb from "./indexer/blocks/get_pb";
 import * as indexer_blocks_latest_pb from "./indexer/blocks/latest_pb";
 import * as indexer_blocks_root_pb from "./indexer/blocks/root_pb";
 import * as indexer_blocks_filter_pb from "./indexer/blocks/filter_pb";
-

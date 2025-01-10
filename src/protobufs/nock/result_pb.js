@@ -13,13 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global =
-    (typeof globalThis !== 'undefined' && globalThis) ||
-    (typeof window !== 'undefined' && window) ||
-    (typeof global !== 'undefined' && global) ||
-    (typeof self !== 'undefined' && self) ||
-    (function () { return this; }).call(null) ||
-    Function('return this')();
+var global = (function() {
+  if (this) { return this; }
+  if (typeof window !== 'undefined') { return window; }
+  if (typeof global !== 'undefined') { return global; }
+  if (typeof self !== 'undefined') { return self; }
+  return Function('return this')();
+}.call(null));
 
 goog.exportSymbol('proto.Anoma.Protobuf.Nock.Error', null, global);
 goog.exportSymbol('proto.Anoma.Protobuf.Nock.Success', null, global);
@@ -104,8 +104,8 @@ proto.Anoma.Protobuf.Nock.Success.prototype.toObject = function(opt_includeInsta
  */
 proto.Anoma.Protobuf.Nock.Success.toObject = function(includeInstance, msg) {
   var f, obj = {
-result: msg.getResult_asB64(),
-outputList: msg.getOutputList_asB64()
+    result: msg.getResult_asB64(),
+    outputList: msg.getOutputList_asB64()
   };
 
   if (includeInstance) {
@@ -338,8 +338,8 @@ proto.Anoma.Protobuf.Nock.Error.prototype.toObject = function(opt_includeInstanc
  */
 proto.Anoma.Protobuf.Nock.Error.toObject = function(includeInstance, msg) {
   var f, obj = {
-error: jspb.Message.getFieldWithDefault(msg, 1, ""),
-outputList: msg.getOutputList_asB64()
+    error: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    outputList: msg.getOutputList_asB64()
   };
 
   if (includeInstance) {

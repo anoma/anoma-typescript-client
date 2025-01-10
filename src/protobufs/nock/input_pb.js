@@ -13,13 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global =
-    (typeof globalThis !== 'undefined' && globalThis) ||
-    (typeof window !== 'undefined' && window) ||
-    (typeof global !== 'undefined' && global) ||
-    (typeof self !== 'undefined' && self) ||
-    (function () { return this; }).call(null) ||
-    Function('return this')();
+var global = (function() {
+  if (this) { return this; }
+  if (typeof window !== 'undefined') { return window; }
+  if (typeof global !== 'undefined') { return global; }
+  if (typeof self !== 'undefined') { return self; }
+  return Function('return this')();
+}.call(null));
 
 goog.exportSymbol('proto.Anoma.Protobuf.Nock.Input', null, global);
 goog.exportSymbol('proto.Anoma.Protobuf.Nock.Input.InputCase', null, global);
@@ -102,8 +102,8 @@ proto.Anoma.Protobuf.Nock.Input.prototype.toObject = function(opt_includeInstanc
  */
 proto.Anoma.Protobuf.Nock.Input.toObject = function(includeInstance, msg) {
   var f, obj = {
-jammed: msg.getJammed_asB64(),
-text: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f
+    jammed: msg.getJammed_asB64(),
+    text: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {

@@ -13,13 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global =
-    (typeof globalThis !== 'undefined' && globalThis) ||
-    (typeof window !== 'undefined' && window) ||
-    (typeof global !== 'undefined' && global) ||
-    (typeof self !== 'undefined' && self) ||
-    (function () { return this; }).call(null) ||
-    Function('return this')();
+var global = (function() {
+  if (this) { return this; }
+  if (typeof window !== 'undefined') { return window; }
+  if (typeof global !== 'undefined') { return global; }
+  if (typeof self !== 'undefined') { return self; }
+  return Function('return this')();
+}.call(null));
 
 var nock_input_pb = require('../nock/input_pb.js');
 goog.object.extend(proto, nock_input_pb);
@@ -138,12 +138,12 @@ proto.Anoma.Protobuf.Nock.Prove.Request.prototype.toObject = function(opt_includ
  */
 proto.Anoma.Protobuf.Nock.Prove.Request.toObject = function(includeInstance, msg) {
   var f, obj = {
-nodeInfo: (f = msg.getNodeInfo()) && node_info_pb.NodeInfo.toObject(includeInstance, f),
-jammedProgram: msg.getJammedProgram_asB64(),
-textProgram: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f,
-publicInputsList: jspb.Message.toObjectList(msg.getPublicInputsList(),
+    nodeInfo: (f = msg.getNodeInfo()) && node_info_pb.NodeInfo.toObject(includeInstance, f),
+    jammedProgram: msg.getJammedProgram_asB64(),
+    textProgram: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    publicInputsList: jspb.Message.toObjectList(msg.getPublicInputsList(),
     nock_input_pb.Input.toObject, includeInstance),
-privateInputsList: jspb.Message.toObjectList(msg.getPrivateInputsList(),
+    privateInputsList: jspb.Message.toObjectList(msg.getPrivateInputsList(),
     nock_input_pb.Input.toObject, includeInstance)
   };
 
@@ -541,8 +541,8 @@ proto.Anoma.Protobuf.Nock.Prove.Response.prototype.toObject = function(opt_inclu
  */
 proto.Anoma.Protobuf.Nock.Prove.Response.toObject = function(includeInstance, msg) {
   var f, obj = {
-success: (f = msg.getSuccess()) && nock_result_pb.Success.toObject(includeInstance, f),
-error: (f = msg.getError()) && nock_result_pb.Error.toObject(includeInstance, f)
+    success: (f = msg.getSuccess()) && nock_result_pb.Success.toObject(includeInstance, f),
+    error: (f = msg.getError()) && nock_result_pb.Error.toObject(includeInstance, f)
   };
 
   if (includeInstance) {

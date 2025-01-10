@@ -13,13 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global =
-    (typeof globalThis !== 'undefined' && globalThis) ||
-    (typeof window !== 'undefined' && window) ||
-    (typeof global !== 'undefined' && global) ||
-    (typeof self !== 'undefined' && self) ||
-    (function () { return this; }).call(null) ||
-    Function('return this')();
+var global = (function() {
+  if (this) { return this; }
+  if (typeof window !== 'undefined') { return window; }
+  if (typeof global !== 'undefined') { return global; }
+  if (typeof self !== 'undefined') { return self; }
+  return Function('return this')();
+}.call(null));
 
 var intents_intent_pb = require('../intents/intent_pb.js');
 goog.object.extend(proto, intents_intent_pb);
@@ -101,8 +101,8 @@ proto.Anoma.Protobuf.Intents.Add.Request.prototype.toObject = function(opt_inclu
  */
 proto.Anoma.Protobuf.Intents.Add.Request.toObject = function(includeInstance, msg) {
   var f, obj = {
-nodeInfo: (f = msg.getNodeInfo()) && node_info_pb.NodeInfo.toObject(includeInstance, f),
-intent: (f = msg.getIntent()) && intents_intent_pb.Intent.toObject(includeInstance, f)
+    nodeInfo: (f = msg.getNodeInfo()) && node_info_pb.NodeInfo.toObject(includeInstance, f),
+    intent: (f = msg.getIntent()) && intents_intent_pb.Intent.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -303,7 +303,7 @@ proto.Anoma.Protobuf.Intents.Add.Response.prototype.toObject = function(opt_incl
  */
 proto.Anoma.Protobuf.Intents.Add.Response.toObject = function(includeInstance, msg) {
   var f, obj = {
-result: jspb.Message.getFieldWithDefault(msg, 1, "")
+    result: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {

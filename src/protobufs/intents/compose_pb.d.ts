@@ -1,57 +1,60 @@
 // package: Anoma.Protobuf.Intents.Compose
 // file: intents/compose.proto
 
+/* tslint:disable */
+/* eslint-disable */
+
 import * as jspb from "google-protobuf";
 import * as node_info_pb from "../node_info_pb";
 import * as intents_intent_pb from "../intents/intent_pb";
 
-export class Request extends jspb.Message {
-  hasNodeInfo(): boolean;
-  clearNodeInfo(): void;
-  getNodeInfo(): node_info_pb.NodeInfo | undefined;
-  setNodeInfo(value?: node_info_pb.NodeInfo): void;
+export class Request extends jspb.Message { 
 
-  clearIntentsList(): void;
-  getIntentsList(): Array<intents_intent_pb.Intent>;
-  setIntentsList(value: Array<intents_intent_pb.Intent>): void;
-  addIntents(value?: intents_intent_pb.Intent, index?: number): intents_intent_pb.Intent;
+    hasNodeInfo(): boolean;
+    clearNodeInfo(): void;
+    getNodeInfo(): node_info_pb.NodeInfo | undefined;
+    setNodeInfo(value?: node_info_pb.NodeInfo): Request;
+    clearIntentsList(): void;
+    getIntentsList(): Array<intents_intent_pb.Intent>;
+    setIntentsList(value: Array<intents_intent_pb.Intent>): Request;
+    addIntents(value?: intents_intent_pb.Intent, index?: number): intents_intent_pb.Intent;
 
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Request.AsObject;
-  static toObject(includeInstance: boolean, msg: Request): Request.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Request, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Request;
-  static deserializeBinaryFromReader(message: Request, reader: jspb.BinaryReader): Request;
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Request.AsObject;
+    static toObject(includeInstance: boolean, msg: Request): Request.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: Request, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Request;
+    static deserializeBinaryFromReader(message: Request, reader: jspb.BinaryReader): Request;
 }
 
 export namespace Request {
-  export type AsObject = {
-    nodeInfo?: node_info_pb.NodeInfo.AsObject,
-    intentsList: Array<intents_intent_pb.Intent.AsObject>,
-  }
+    export type AsObject = {
+        nodeInfo?: node_info_pb.NodeInfo.AsObject,
+        intentsList: Array<intents_intent_pb.Intent.AsObject>,
+    }
 }
 
-export class Response extends jspb.Message {
-  hasIntent(): boolean;
-  clearIntent(): void;
-  getIntent(): intents_intent_pb.Intent | undefined;
-  setIntent(value?: intents_intent_pb.Intent): void;
+export class Response extends jspb.Message { 
 
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): Response.AsObject;
-  static toObject(includeInstance: boolean, msg: Response): Response.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: Response, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): Response;
-  static deserializeBinaryFromReader(message: Response, reader: jspb.BinaryReader): Response;
+    hasIntent(): boolean;
+    clearIntent(): void;
+    getIntent(): intents_intent_pb.Intent | undefined;
+    setIntent(value?: intents_intent_pb.Intent): Response;
+
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Response.AsObject;
+    static toObject(includeInstance: boolean, msg: Response): Response.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: Response, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Response;
+    static deserializeBinaryFromReader(message: Response, reader: jspb.BinaryReader): Response;
 }
 
 export namespace Response {
-  export type AsObject = {
-    intent?: intents_intent_pb.Intent.AsObject,
-  }
+    export type AsObject = {
+        intent?: intents_intent_pb.Intent.AsObject,
+    }
 }
-

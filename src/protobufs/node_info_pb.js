@@ -13,13 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global =
-    (typeof globalThis !== 'undefined' && globalThis) ||
-    (typeof window !== 'undefined' && window) ||
-    (typeof global !== 'undefined' && global) ||
-    (typeof self !== 'undefined' && self) ||
-    (function () { return this; }).call(null) ||
-    Function('return this')();
+var global = (function() {
+  if (this) { return this; }
+  if (typeof window !== 'undefined') { return window; }
+  if (typeof global !== 'undefined') { return global; }
+  if (typeof self !== 'undefined') { return self; }
+  return Function('return this')();
+}.call(null));
 
 goog.exportSymbol('proto.Anoma.Protobuf.NodeInfo', null, global);
 /**
@@ -75,7 +75,7 @@ proto.Anoma.Protobuf.NodeInfo.prototype.toObject = function(opt_includeInstance)
  */
 proto.Anoma.Protobuf.NodeInfo.toObject = function(includeInstance, msg) {
   var f, obj = {
-nodeId: msg.getNodeId_asB64()
+    nodeId: msg.getNodeId_asB64()
   };
 
   if (includeInstance) {
