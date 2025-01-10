@@ -13,13 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global =
-    (typeof globalThis !== 'undefined' && globalThis) ||
-    (typeof window !== 'undefined' && window) ||
-    (typeof global !== 'undefined' && global) ||
-    (typeof self !== 'undefined' && self) ||
-    (function () { return this; }).call(null) ||
-    Function('return this')();
+var global = (function() {
+  if (this) { return this; }
+  if (typeof window !== 'undefined') { return window; }
+  if (typeof global !== 'undefined') { return global; }
+  if (typeof self !== 'undefined') { return self; }
+  return Function('return this')();
+}.call(null));
 
 goog.exportSymbol('proto.Anoma.Protobuf.Indexer.Blocks.Block', null, global);
 goog.exportSymbol('proto.Anoma.Protobuf.Indexer.Blocks.Transaction', null, global);
@@ -124,9 +124,9 @@ proto.Anoma.Protobuf.Indexer.Blocks.Transaction.prototype.toObject = function(op
  */
 proto.Anoma.Protobuf.Indexer.Blocks.Transaction.toObject = function(includeInstance, msg) {
   var f, obj = {
-code: msg.getCode_asB64(),
-error: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
-success: msg.getSuccess_asB64()
+    code: msg.getCode_asB64(),
+    error: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    success: msg.getSuccess_asB64()
   };
 
   if (includeInstance) {
@@ -405,9 +405,9 @@ proto.Anoma.Protobuf.Indexer.Blocks.Block.prototype.toObject = function(opt_incl
  */
 proto.Anoma.Protobuf.Indexer.Blocks.Block.toObject = function(includeInstance, msg) {
   var f, obj = {
-transactionsList: jspb.Message.toObjectList(msg.getTransactionsList(),
+    transactionsList: jspb.Message.toObjectList(msg.getTransactionsList(),
     proto.Anoma.Protobuf.Indexer.Blocks.Transaction.toObject, includeInstance),
-height: jspb.Message.getFieldWithDefault(msg, 2, 0)
+    height: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {

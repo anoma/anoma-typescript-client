@@ -13,13 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global =
-    (typeof globalThis !== 'undefined' && globalThis) ||
-    (typeof window !== 'undefined' && window) ||
-    (typeof global !== 'undefined' && global) ||
-    (typeof self !== 'undefined' && self) ||
-    (function () { return this; }).call(null) ||
-    Function('return this')();
+var global = (function() {
+  if (this) { return this; }
+  if (typeof window !== 'undefined') { return window; }
+  if (typeof global !== 'undefined') { return global; }
+  if (typeof self !== 'undefined') { return self; }
+  return Function('return this')();
+}.call(null));
 
 var node_info_pb = require('../../node_info_pb.js');
 goog.object.extend(proto, node_info_pb);
@@ -128,9 +128,9 @@ proto.Anoma.Protobuf.Indexer.Blocks.Get.Request.prototype.toObject = function(op
  */
 proto.Anoma.Protobuf.Indexer.Blocks.Get.Request.toObject = function(includeInstance, msg) {
   var f, obj = {
-nodeInfo: (f = msg.getNodeInfo()) && node_info_pb.NodeInfo.toObject(includeInstance, f),
-after: (f = jspb.Message.getField(msg, 2)) == null ? undefined : f,
-before: (f = jspb.Message.getField(msg, 3)) == null ? undefined : f
+    nodeInfo: (f = msg.getNodeInfo()) && node_info_pb.NodeInfo.toObject(includeInstance, f),
+    after: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    before: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -382,7 +382,7 @@ proto.Anoma.Protobuf.Indexer.Blocks.Get.Response.prototype.toObject = function(o
  */
 proto.Anoma.Protobuf.Indexer.Blocks.Get.Response.toObject = function(includeInstance, msg) {
   var f, obj = {
-blocksList: jspb.Message.toObjectList(msg.getBlocksList(),
+    blocksList: jspb.Message.toObjectList(msg.getBlocksList(),
     indexer_blocks_block_pb.Block.toObject, includeInstance)
   };
 

@@ -13,13 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global =
-    (typeof globalThis !== 'undefined' && globalThis) ||
-    (typeof window !== 'undefined' && window) ||
-    (typeof global !== 'undefined' && global) ||
-    (typeof self !== 'undefined' && self) ||
-    (function () { return this; }).call(null) ||
-    Function('return this')();
+var global = (function() {
+  if (this) { return this; }
+  if (typeof window !== 'undefined') { return window; }
+  if (typeof global !== 'undefined') { return global; }
+  if (typeof self !== 'undefined') { return self; }
+  return Function('return this')();
+}.call(null));
 
 var node_info_pb = require('../../node_info_pb.js');
 goog.object.extend(proto, node_info_pb);
@@ -129,8 +129,8 @@ proto.Anoma.Protobuf.Indexer.Blocks.Filtered.Request.prototype.toObject = functi
  */
 proto.Anoma.Protobuf.Indexer.Blocks.Filtered.Request.toObject = function(includeInstance, msg) {
   var f, obj = {
-nodeInfo: (f = msg.getNodeInfo()) && node_info_pb.NodeInfo.toObject(includeInstance, f),
-filtersList: jspb.Message.toObjectList(msg.getFiltersList(),
+    nodeInfo: (f = msg.getNodeInfo()) && node_info_pb.NodeInfo.toObject(includeInstance, f),
+    filtersList: jspb.Message.toObjectList(msg.getFiltersList(),
     proto.Anoma.Protobuf.Indexer.Blocks.Filtered.Filter.toObject, includeInstance)
   };
 
@@ -340,7 +340,7 @@ proto.Anoma.Protobuf.Indexer.Blocks.Filtered.Response.prototype.toObject = funct
  */
 proto.Anoma.Protobuf.Indexer.Blocks.Filtered.Response.toObject = function(includeInstance, msg) {
   var f, obj = {
-resourcesList: msg.getResourcesList_asB64()
+    resourcesList: msg.getResourcesList_asB64()
   };
 
   if (includeInstance) {
@@ -539,8 +539,8 @@ proto.Anoma.Protobuf.Indexer.Blocks.Filtered.Filter.prototype.toObject = functio
  */
 proto.Anoma.Protobuf.Indexer.Blocks.Filtered.Filter.toObject = function(includeInstance, msg) {
   var f, obj = {
-owner: msg.getOwner_asB64(),
-kind: msg.getKind_asB64()
+    owner: msg.getOwner_asB64(),
+    kind: msg.getKind_asB64()
   };
 
   if (includeInstance) {

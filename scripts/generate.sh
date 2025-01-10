@@ -12,12 +12,16 @@ mkdir "${DST}"
 # paths to the plugins. These are installed using npm.
 PROTOC_GEN_TS_PATH="./node_modules/.bin/protoc-gen-ts"
 PROTOC_GEN_GRPC_PATH="./node_modules/.bin/grpc_tools_node_protoc_plugin"
+PROTOC_GEN_GRPC_TOOLS="./node_modules/.bin/grpc_tools_node_protoc"
 
 # generate the files.
-protoc                                               \
-    --plugin="protoc-gen-ts=${PROTOC_GEN_TS_PATH}"   \
+"${PROTOC_GEN_GRPC_TOOLS}"                           \
     --plugin=protoc-gen-grpc=${PROTOC_GEN_GRPC_PATH} \
     --js_out="import_style=commonjs,binary:${DST}"   \
-    --ts_out="service=grpc-node,mode=grpc-js:${DST}" \
     --grpc_out=grpc_js:"${DST}"                      \
+    -I="${SRC}" protobuf/*.proto protobuf/**/*.proto protobuf/**/**/*.proto
+
+protoc \
+    --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts \
+    --ts_out=grpc_js:"${DST}" \
     -I="${SRC}" protobuf/*.proto protobuf/**/*.proto protobuf/**/**/*.proto

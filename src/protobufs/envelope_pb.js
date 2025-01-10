@@ -13,13 +13,13 @@
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global =
-    (typeof globalThis !== 'undefined' && globalThis) ||
-    (typeof window !== 'undefined' && window) ||
-    (typeof global !== 'undefined' && global) ||
-    (typeof self !== 'undefined' && self) ||
-    (function () { return this; }).call(null) ||
-    Function('return this')();
+var global = (function() {
+  if (this) { return this; }
+  if (typeof window !== 'undefined') { return window; }
+  if (typeof global !== 'undefined') { return global; }
+  if (typeof self !== 'undefined') { return self; }
+  return Function('return this')();
+}.call(null));
 
 var node_info_pb = require('./node_info_pb.js');
 goog.object.extend(proto, node_info_pb);
@@ -129,21 +129,21 @@ proto.Anoma.Protobuf.Envelope.prototype.toObject = function(opt_includeInstance)
  */
 proto.Anoma.Protobuf.Envelope.toObject = function(includeInstance, msg) {
   var f, obj = {
-senderInfo: (f = msg.getSenderInfo()) && node_info_pb.NodeInfo.toObject(includeInstance, f),
-messageId: msg.getMessageId_asB64(),
-announcement: (f = msg.getAnnouncement()) && announcement_pb.Announcement.toObject(includeInstance, f),
-listIntentsRequest: (f = msg.getListIntentsRequest()) && intents_list_intents_pb.Request.toObject(includeInstance, f),
-listIntentsResponse: (f = msg.getListIntentsResponse()) && intents_list_intents_pb.Response.toObject(includeInstance, f),
-addIntentRequest: (f = msg.getAddIntentRequest()) && intents_add_intent_pb.Request.toObject(includeInstance, f),
-addIntentResponse: (f = msg.getAddIntentResponse()) && intents_add_intent_pb.Response.toObject(includeInstance, f),
-nullifiersRequest: (f = msg.getNullifiersRequest()) && indexer_nullifiers_pb.Request.toObject(includeInstance, f),
-nullifiersResponse: (f = msg.getNullifiersResponse()) && indexer_nullifiers_pb.Response.toObject(includeInstance, f),
-unrevealedCommitsRequest: (f = msg.getUnrevealedCommitsRequest()) && indexer_unrevealed_commits_pb.Request.toObject(includeInstance, f),
-unrevealedCommitsResponse: (f = msg.getUnrevealedCommitsResponse()) && indexer_unrevealed_commits_pb.Response.toObject(includeInstance, f),
-unspentResourcesRequest: (f = msg.getUnspentResourcesRequest()) && indexer_unspent_resources_pb.Request.toObject(includeInstance, f),
-unspentResourcesResponse: (f = msg.getUnspentResourcesResponse()) && indexer_unspent_resources_pb.Response.toObject(includeInstance, f),
-mempoolDumpRequest: (f = msg.getMempoolDumpRequest()) && mempool_dump_pb.Request.toObject(includeInstance, f),
-mempoolDumpResponse: (f = msg.getMempoolDumpResponse()) && mempool_dump_pb.Response.toObject(includeInstance, f)
+    senderInfo: (f = msg.getSenderInfo()) && node_info_pb.NodeInfo.toObject(includeInstance, f),
+    messageId: msg.getMessageId_asB64(),
+    announcement: (f = msg.getAnnouncement()) && announcement_pb.Announcement.toObject(includeInstance, f),
+    listIntentsRequest: (f = msg.getListIntentsRequest()) && intents_list_intents_pb.Request.toObject(includeInstance, f),
+    listIntentsResponse: (f = msg.getListIntentsResponse()) && intents_list_intents_pb.Response.toObject(includeInstance, f),
+    addIntentRequest: (f = msg.getAddIntentRequest()) && intents_add_intent_pb.Request.toObject(includeInstance, f),
+    addIntentResponse: (f = msg.getAddIntentResponse()) && intents_add_intent_pb.Response.toObject(includeInstance, f),
+    nullifiersRequest: (f = msg.getNullifiersRequest()) && indexer_nullifiers_pb.Request.toObject(includeInstance, f),
+    nullifiersResponse: (f = msg.getNullifiersResponse()) && indexer_nullifiers_pb.Response.toObject(includeInstance, f),
+    unrevealedCommitsRequest: (f = msg.getUnrevealedCommitsRequest()) && indexer_unrevealed_commits_pb.Request.toObject(includeInstance, f),
+    unrevealedCommitsResponse: (f = msg.getUnrevealedCommitsResponse()) && indexer_unrevealed_commits_pb.Response.toObject(includeInstance, f),
+    unspentResourcesRequest: (f = msg.getUnspentResourcesRequest()) && indexer_unspent_resources_pb.Request.toObject(includeInstance, f),
+    unspentResourcesResponse: (f = msg.getUnspentResourcesResponse()) && indexer_unspent_resources_pb.Response.toObject(includeInstance, f),
+    mempoolDumpRequest: (f = msg.getMempoolDumpRequest()) && mempool_dump_pb.Request.toObject(includeInstance, f),
+    mempoolDumpResponse: (f = msg.getMempoolDumpResponse()) && mempool_dump_pb.Response.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
