@@ -10,8 +10,8 @@ mkdir "${DST}"
 
 
 # paths to the plugins. These are installed using npm.
-PROTOC_GEN_TS_PATH="./node_modules/.bin/protoc-gen-ts"
-PROTOC_GEN_GRPC_PATH="./node_modules/.bin/grpc_tools_node_protoc_plugin"
+export PROTOC_GEN_TS_PATH="./node_modules/.bin/protoc-gen-ts"
+export PROTOC_GEN_GRPC_PATH="./node_modules/.bin/grpc_tools_node_protoc_plugin"
 
 # generate the files.
 protoc                                               \
